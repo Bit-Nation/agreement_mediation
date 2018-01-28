@@ -1,0 +1,29 @@
+{
+    "name": "agreement_mediation",
+    "version": "1.0.0",
+    "description": "",
+    "main": "truffle-config.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "truffle test --network testing",
+        "coverage": "./node_modules/.bin/solidity-coverage"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Bit-Nation/agreement_mediation.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Bit-Nation/agreement_mediation/issues"
+    },
+    "homepage": "https://github.com/Bit-Nation/agreement_mediation#readme",
+    "devDependencies": {
+        "solidity-coverage": "^0.4.8"
+    },
+    "dependencies": {
+        "truffle": "^4.0.5"
+    }
+}
