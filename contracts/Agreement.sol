@@ -1,3 +1,5 @@
+import "./Mediation.sol";
+
 pragma solidity ^0.4.18;
 
 contract Agreement {
@@ -13,7 +15,7 @@ contract Agreement {
     event AgreementInitiated(address indexed agreementAddress, address indexed contractorAddress);
     event AgreementSigned(address indexed signee);
     event AgreementTerminated(address indexed agreementAddress);
-    event MediationStarted(address indexed agreementAddress, address indexed creator, address indexed contractor);
+    event MediationStarted(address indexed agreementAddress, address indexed creator, address indexed contractor, address mediationAddress);
 
     function Agreement(address _creator, address _contractor) public payable {
         creator = _creator;
@@ -47,6 +49,19 @@ contract Agreement {
             terminated = true;
             AgreementTerminated(this);
         }
+
+    }
+
+    function startMediation() public {
+
+        require(msg.sender == contractor || msg.sender == creator);
+        require(!terminated);
+
+        Mediation mediation = new Mediation(creator,  contractor);
+
+        mediation.transfer(this.balance);
+
+        MediationStarted(this, creator, contractor, mediation);
 
     }
 

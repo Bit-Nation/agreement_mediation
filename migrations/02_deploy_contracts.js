@@ -1,5 +1,5 @@
-const AgreementRegistry = artifacts.require('AgreementRegistry');
+const AgreementContract = artifacts.require('Agreement');
 
 module.exports = function(deployer) {
-	deployer.deploy(AgreementRegistry);
+	deployer.deploy(AgreementContract);
 };
